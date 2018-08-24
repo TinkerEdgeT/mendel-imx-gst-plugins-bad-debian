@@ -103,22 +103,7 @@ ifneq ($(DEB_HOST_ARCH_OS),hurd)
 resindvd = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstresindvd.so
 endif
 
-# Let's decide the package name and url depending on the distribution
-DISTRO = "$(shell dpkg-vendor --query vendor)"
-
-GST_PACKAGE_NAME := "GStreamer Bad Plugins (unknown Debian derivative)"
-GST_PACKAGE_ORIGIN="http://packages.qa.debian.org/gst-plugins-bad$(gst_abi)"
-
-ifeq ($(DISTRO),"Debian")
-GST_PACKAGE_NAME := "GStreamer Bad Plugins (Debian)"
-GST_PACKAGE_ORIGIN="http://packages.qa.debian.org/gst-plugins-bad$(gst_abi)"
-endif
-
-ifeq ($(DISTRO),"Ubuntu")
-GST_PACKAGE_NAME := "GStreamer Bad Plugins (Ubuntu)"
-GST_PACKAGE_ORIGIN="https://launchpad.net/distros/ubuntu/+source/gst-plugins-bad$(gst_abi)"
-endif
-
+GST_PACKAGE_NAME := "GStreamer Bad Plugins"
 
 # setup links for packages
 pre-build::
@@ -159,50 +144,12 @@ pre-build::
 
 maint: debian/control
 
-debian/build-deps: debian/build-deps.in debian/rules
-	cat $< > $@
-	for plugin in $(EXTRA_PLUGINS); do \
-		sh debian/extra deps $$plugin >> $@; \
-	done
-	sort $@ -o $@
-
-debian/control: debian/control.in debian/build-deps debian/mk.control debian/rules
-	perl debian/mk.control | sed \
-		-e 's/@GST_VERSION@/$(gst_version)/g' \
-		-e 's/@GST_ABI@/$(gst_abi)/g' \
-		-e 's/@GST_DEB_ABI@/$(gst_deb_abi)/g' \
-		-e 's/@GST_PKGNAME@/$(gst_pkgname)/g' \
-		-e 's/@GST_LIB@/$(gst_lib)/g' \
-		-e 's/@GST_LIB_DEV@/$(gst_lib_dev)/g' \
-		-e 's/@GST_LIB_DEV_DEP@/$(gst_lib_dev_dep)/g' \
-		-e 's/@GST_EXTRA_BUILD_DEPENDS@/$(gst_extra_build_depends)/g' \
-		-e '/^Build-Depends\(-Indep\)\?/s/\ *,\ */,\n               /g' \
-		>$@
-
-	for plugin in $(EXTRA_PLUGINS); do \
-		sh debian/extra control $$plugin | sed \
-			-e 's/@GST_ABI@/$(gst_abi)/g' \
-			-e 's/@GST_PKGNAME@/$(gst_pkgname)/g' \
-			-e 's/@GST_LIB@/$(gst_lib)/g' \
-			-e 's/@GST_LIB_DEV@/$(gst_lib_dev)/g' \
-			-e 's/@GST_LIB_DEV_DEP@/$(gst_lib_dev_dep)/g' \
-			-e 's/@GST_PLUGINS_LIB@/$(gst_plugins_lib)/g' \
-			-e 's/@GST_PLUGINS_LIB_DEV@/$(gst_plugins_lib_dev)/g' \
-			-e 's/@GST_PLUGINS_LIB_DEV_DEP@/$(gst_plugins_lib_dev_dep)/g' \
-			-e 's/@GST_GCONF_LIB@/$(gst_gconf_lib)/g' \
-			-e 's/@GST_GCONF_LIB_DEV@/$(gst_gconf_lib_dev)/g' \
-			-e 's/@GST_GCONF_LIB_DEV_DEP@/$(gst_gconf_lib_dev_dep)/g' \
-			>> $@; \
-	done
-
-
 DEB_CONFIGURE_EXTRA_FLAGS += \
 	--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) \
 	--disable-examples \
 	--enable-DEBUG \
 	--enable-debug \
 	--with-package-name=$(GST_PACKAGE_NAME) \
-	--with-package-origin=$(GST_PACKAGE_ORIGIN) \
 	--disable-pvr
 
 # only build the docs on arches which can

@@ -1,4 +1,4 @@
-Source: gst-plugins-bad1.0
+Source: imx-gst-plugins-bad
 Section: libs
 Priority: extra
 Maintainer: AIY Projects <support-aiyprojects@google.com>
