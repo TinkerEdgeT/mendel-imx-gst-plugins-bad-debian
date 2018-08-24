@@ -105,8 +105,14 @@ endif
 
 GST_PACKAGE_NAME := "GStreamer Bad Plugins"
 
+CFLAGS += -I$(shell realpath extinc)
+
 # setup links for packages
 pre-build::
+	# HACK in ion.h
+	mkdir -p extinc/linux
+	find /usr/src/*/include/uapi -name ion.h -exec cp {} extinc/linux \;
+
 	for p in $(PLUGINS); do \
 		rm -f debian/$(gst_pkgname)-$$p.install; \
 		sed \
