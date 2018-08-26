@@ -86,7 +86,6 @@ cdaudio = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstcd
 dc1394 = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstdc1394.so
 decklink = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstdecklink.so
 linsys = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstlinsys.so
-uvch264 = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstuvch264.so
 bluez = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstbluez.so
 sbc = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstsbc.so
 waylandsink = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstwaylandsink.so
@@ -145,8 +144,6 @@ pre-build::
 			> debian/libgstreamer-plugins-bad$(gst_deb_abi).install
 	sed 's/@GST_ABI@/$(gst_abi)/g' debian/libgstreamer-plugins-bad-dev.install \
 			> debian/libgstreamer-plugins-bad$(gst_abi)-dev.install
-	cp debian/gir1.2-gst-plugins-bad.install \
-			debian/gir1.2-gst-plugins-bad-$(gst_abi).install
 
 maint: debian/control
 
@@ -156,12 +153,9 @@ DEB_CONFIGURE_EXTRA_FLAGS += \
 	--enable-DEBUG \
 	--enable-debug \
 	--with-package-name=$(GST_PACKAGE_NAME) \
-	--disable-pvr
-
-# only build the docs on arches which can
-#ifeq (,$(findstring $(DEB_HOST_ARCH),m68k arm))
-#DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc
-#endif
+	--disable-pvr \
+	--disable-mpeg2enc \
+	--disable-mplex\
 
 common-binary-fixup-arch::
 	LD_LIBRARY_PATH=debian/libgstreamer-plugins-bad1.0-0/usr/lib/$(DEB_HOST_MULTIARCH):$(LD_LIBRARY_PATH) \
