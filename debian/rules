@@ -60,7 +60,6 @@ gst_extra_build_depends += , libsbc-dev (>= 1.1) [linux-any]
 gst_extra_build_depends += , libwayland-dev (>= 1.4.0) [linux-any]
 gst_extra_build_depends += , libdrm-dev (>= 2.4.55) [linux-any]
 gst_extra_build_depends += , wayland-protocols (>= 1.4) [linux-any]
-gst_extra_build_depends += , libvulkan-dev [linux-any]
 
 # The plugins are basically the same.
 # Link special names to a template file.
@@ -91,7 +90,6 @@ sbc = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstsbc.so
 waylandsink = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstwaylandsink.so
 wayland = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libgstwayland-$(gst_abi).so.*
 kms = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstkms.so
-vulkan = debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/gstreamer-$(gst_abi)/libgstvulkan.so
 endif
 
 ifeq ($(DEB_HOST_ARCH_OS),kfreebsd)
@@ -128,7 +126,6 @@ pre-build::
 			-e 's,@sbc@,$(sbc),g' \
 			-e 's,@waylandsink@,$(waylandsink),g' \
 			-e 's,@kms@,$(kms),g' \
-			-e 's,@vulkan@,$(vulkan),g' \
 			-e 's/@GST_ABI@/$(gst_abi)/g' \
 			debian/gstreamer-$$p.install \
 			> debian/$(gst_pkgname)-$$p.install; \
@@ -155,7 +152,13 @@ DEB_CONFIGURE_EXTRA_FLAGS += \
 	--with-package-name=$(GST_PACKAGE_NAME) \
 	--disable-pvr \
 	--disable-mpeg2enc \
-	--disable-mplex\
+	--disable-mplex \
+	--enable-wayland \
+	--disable-x11 \
+	--disable-glx \
+	--disable-opengl \
+	--enable-gles2 \
+
 
 common-binary-fixup-arch::
 	LD_LIBRARY_PATH=debian/libgstreamer-plugins-bad1.0-0/usr/lib/$(DEB_HOST_MULTIARCH):$(LD_LIBRARY_PATH) \

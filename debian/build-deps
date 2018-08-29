@@ -20,15 +20,11 @@ libcurl4-gnutls-dev (>= 7.35.0)
 libdca-dev
 libde265-dev
 libdvdnav-dev (>= 4.1.2) [!hurd-any]
-libegl1-mesa-dev
 libexempi-dev
 libexif-dev (>= 0.6.16)
 libfaad-dev (>= 2.7)
 libfluidsynth-dev (>= 1.0)
-libgl1-mesa-dev
-libgles2-mesa-dev
 libglib2.0-dev (>= 2.40)
-libglu1-mesa-dev
 libgme-dev
 libgnutls28-dev (>= 2.11.3)
 libgsm1-dev
