@@ -1,3 +1,12 @@
+imx-gst-plugins-bad (1.12.2+imx-1) unstable; urgency=medium
+
+  * Fix crash in kmssink
+  * Revert revert of NXP patch to glupload, instead use glcolorconvert disable-passthrough=true
+  * Fix display context name in gst_wayland_display_handle_context_new
+  * Revert accidentally merged glimagesink patch that can cause tearing
+
+ -- AIY Projects <support-aiyprojects@google.com>  Tue, 30 Oct 2018 14:21:43 -0800
+
 imx-gst-plugins-bad (1.12.2+imx-0) unstable; urgency=medium
 
   * Initial release
