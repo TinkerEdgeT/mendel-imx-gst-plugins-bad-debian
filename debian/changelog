@@ -1,3 +1,9 @@
+imx-gst-plugins-bad (1.12.2+imx-4) mendel-beaker; urgency=medium
+
+  * Use highp float precision in YUY2 color convert shaders.
+
+ -- AIY Projects <support-aiyprojects@google.com>  Wed, 06 Feb 2019 10:21:20 -0800
+
 imx-gst-plugins-bad (1.12.2+imx-3) mendel-beaker; urgency=medium
 
   * Use the correct linux-image version number.
