@@ -1,7 +1,7 @@
 Source: imx-gst-plugins-bad
 Section: libs
 Priority: extra
-Maintainer: AIY Projects <support-aiyprojects@google.com>
+Maintainer: AIY Projects <coral-support@google.com>
 Build-Depends: autoconf (>= 2.69),
                automake (>= 1.14),
                autopoint (>= 0.17),

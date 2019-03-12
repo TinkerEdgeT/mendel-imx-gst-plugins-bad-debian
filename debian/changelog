@@ -2,19 +2,19 @@ imx-gst-plugins-bad (1.12.2+imx-4) mendel-beaker; urgency=medium
 
   * Use highp float precision in YUY2 color convert shaders.
 
- -- AIY Projects <support-aiyprojects@google.com>  Wed, 06 Feb 2019 10:21:20 -0800
+ -- AIY Projects <coral-support@google.com>  Wed, 06 Feb 2019 10:21:20 -0800
 
 imx-gst-plugins-bad (1.12.2+imx-3) mendel-beaker; urgency=medium
 
   * Use the correct linux-image version number.
 
- -- AIY Projects <support-aiyprojects@google.com>  Wed, 30 Jan 2019 12:00:00 -0800
+ -- AIY Projects <coral-support@google.com>  Wed, 30 Jan 2019 12:00:00 -0800
 
 imx-gst-plugins-bad (1.12.2+imx-2) mendel-beaker; urgency=medium
 
   * Cut for beaker release and normalization of version.
 
- -- AIY Projects <support-aiyprojects@google.com>  Wed, 16 Jan 2019 12:00:00 -0800
+ -- AIY Projects <coral-support@google.com>  Wed, 16 Jan 2019 12:00:00 -0800
 
 imx-gst-plugins-bad (1.12.2+imx-1) unstable; urgency=medium
 
@@ -23,10 +23,10 @@ imx-gst-plugins-bad (1.12.2+imx-1) unstable; urgency=medium
   * Fix display context name in gst_wayland_display_handle_context_new
   * Revert accidentally merged glimagesink patch that can cause tearing
 
- -- AIY Projects <support-aiyprojects@google.com>  Tue, 30 Oct 2018 14:21:43 -0800
+ -- AIY Projects <coral-support@google.com>  Tue, 30 Oct 2018 14:21:43 -0800
 
 imx-gst-plugins-bad (1.12.2+imx-0) unstable; urgency=medium
 
   * Initial release
 
- -- AIY Projects <support-aiyprojects@google.com>  Wed, 04 Jul 2018 10:45:53 -0800
+ -- AIY Projects <coral-support@google.com>  Wed, 04 Jul 2018 10:45:53 -0800
