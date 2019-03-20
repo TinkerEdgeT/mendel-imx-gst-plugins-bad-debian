@@ -1,3 +1,11 @@
+imx-gst-plugins-bad (1.12.2+imx-5) mendel-chef; urgency=medium
+
+  * Various waylandsink leak fixes
+  * Fix NXPs custom glupload path for certain formats
+  * Demote buggy FPS prints from g_print to GST_DEBUG
+
+ -- Coral <coral-support@google.com>  Tue, 19 Mar 2019 17:08:25 -0700
+
 imx-gst-plugins-bad (1.12.2+imx-4) mendel-beaker; urgency=medium
 
   * Use highp float precision in YUY2 color convert shaders.
