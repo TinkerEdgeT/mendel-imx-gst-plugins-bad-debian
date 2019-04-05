@@ -83,7 +83,7 @@ Build-Depends: autoconf (>= 2.69),
                libzvbi-dev,
                nettle-dev,
                pkg-config (>= 0.11.0)
-Standards-Version: 3.9.3
+Standards-Version: 3.9.8
 Homepage: http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
 
 Package: gstreamer1.0-plugins-bad
