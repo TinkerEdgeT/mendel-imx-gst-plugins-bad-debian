@@ -3,13 +3,16 @@ automake (>= 1.14)
 autopoint (>= 0.17)
 autotools-dev
 cdbs (>= 0.4.93)
-debhelper (>= 10)
+debhelper (>= 9)
 dh-autoreconf
 dpkg-dev (>= 1.15.1)
 flite-dev
 @GST_EXTRA_BUILD_DEPENDS@
 @GST_LIB_DEV_DEP@
-gstreamer@GST_ABI@-plugins-base (>= 1.12.0)
+gstreamer@GST_ABI@-doc
+gstreamer@GST_ABI@-plugins-base (>= 1.14.4)
+gstreamer@GST_ABI@-plugins-base-doc
+gtk-doc-tools (>= 1.12)
 ladspa-sdk
 libass-dev (>= 0.10.4)
 libbs2b-dev
@@ -20,22 +23,19 @@ libcurl4-gnutls-dev (>= 7.35.0)
 libdca-dev
 libde265-dev
 libdvdnav-dev (>= 4.1.2) [!hurd-any]
-libegl1-mesa-dev
 libexempi-dev
 libexif-dev (>= 0.6.16)
 libfaad-dev (>= 2.7)
 libfluidsynth-dev (>= 1.0)
-libgl1-mesa-dev
-libgles2-mesa-dev
 libglib2.0-dev (>= 2.40)
-libglu1-mesa-dev
 libgme-dev
 libgnutls28-dev (>= 2.11.3)
 libgsm1-dev
-libgstreamer-plugins-base@GST_ABI@-dev (>= 1.12.0)
+libgstreamer-plugins-base@GST_ABI@-dev (>= 1.14.4)
 libgtk-3-dev (>= 3.15.0)
 libiptcdata0-dev (>= 1.0.2)
 libkate-dev (>= 0.1.7)
+liblcms2-dev (>= 2.7)
 liblilv-dev (>= 0.16)
 libmjpegtools-dev
 libmms-dev (>= 0.4)
@@ -44,7 +44,8 @@ libmpcdec-dev
 libofa0-dev (>= 0.9.3)
 libopenal-dev (>= 1:1.14)
 libopenexr-dev
-libopenjp2-7-dev
+libopenjp2-7-dev (>= 2.1)
+libopenmpt-dev
 libopus-dev (>= 0.9.4)
 liborc-0.4-dev (>= 1:0.4.17)
 libpng-dev
@@ -53,7 +54,6 @@ librtmp-dev
 libsndfile1-dev (>= 1.0.16)
 libsoundtouch-dev (>= 1.5.0)
 libspandsp-dev
-libsrtp0-dev
 libssl-dev
 libtool (>= 2.2.6)
 libvo-aacenc-dev
